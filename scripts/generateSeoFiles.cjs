@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 
 // 設定 - サイトのURLを実際のものに変更してください
-const SITE_URL = 'https://bfjojo2025.github.io/';
+const SITE_URL = 'https://bfjojo2025.github.io/BinFeng/';
 const DIST_DIR = path.resolve(__dirname, '../dist');
 const LAST_MOD = new Date().toISOString().split('T')[0]; // YYYY-MM-DD形式
 
