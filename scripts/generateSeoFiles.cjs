@@ -46,6 +46,7 @@ Sitemap: ${SITE_URL}/sitemap.xml`;
   console.log(`Generated robots.txt at: ${robotsPath}`);
 }
 
+
 // スクリプト実行
 generateSitemap();
 generateRobots();
