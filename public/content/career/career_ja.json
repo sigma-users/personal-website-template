@@ -31,26 +31,16 @@
   },
   {
     "id": "career-4",
-    "position": "JSPS特別研究員",
-    "organization": "東京大学",
-    "location": "東京、日本",
-    "startDate": "2014",
-    "endDate": "2015",
-    "description": "",
-    "type": "work"
-  },
-  {
-    "id": "career-5",
     "position": "特任研究員",
     "organization": "東京大学",
     "location": "東京、日本",
-    "startDate": "2015",
+    "startDate": "2014",
     "endDate": "2017",
     "description": "",
     "type": "work"
   },
   {
-    "id": "career-6",
+    "id": "career-5",
     "position": "助教",
     "organization": "東京大学",
     "location": "東京、日本",
@@ -61,16 +51,6 @@
   },
   {
     "id": "career-6",
-    "position": "助教",
-    "organization": "東京大学",
-    "location": "東京、日本",
-    "startDate": "2014",
-    "endDate": null,
-    "description": "",
-    "type": "work"
-  },
-  {
-    "id": "career-7",
     "position": "特任准教授",
     "organization": "東京大学",
     "location": "東京、日本",
