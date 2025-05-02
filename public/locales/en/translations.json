@@ -17,16 +17,13 @@
     "position": "Project Associate Professor",
     "affiliation": "Institute of Engineering Innovation, The University of Tokyo",
     "researchmap": "https://researchmap.jp/BinFeng",
-    null
-    null
-    null
-    null
-    null
+    "linkedin": "null",
+    "researchInterests": "研究興味",
     "researchTags": [
       "Ceramics",
       "STEM",
       "Grain boundary",
-      "dislocation",
+      "dislocation"
     ]
   },
   "publications": {
@@ -73,8 +70,7 @@
     "facebook": "",
     "twitter": " ",
     "labName": "Next Generation Zirconia Social Cooperation Program",
-    "labURL": "https://www.saaf.t.u-tokyo.ac.jp/?lang=en",
-    "https://park.itc.u-tokyo.ac.jp/NextZirconia/en/index.html"
+    "labURL": "https://park.itc.u-tokyo.ac.jp/NextZirconia/en/index.html"
   },
   "footer": {
     "allRightsReserved": "All Rights Reserved.",
