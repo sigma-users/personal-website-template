@@ -37,6 +37,7 @@
     "invited": "Invited",
     "noPapers": "No papers found for this year.",
     "noPresentations": "No presentations found for this year.",
+    "noMisc": "No other publications found for this year.",
     "showAll": "Show All"
   },
   "awards": {

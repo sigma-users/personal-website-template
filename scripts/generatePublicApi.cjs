@@ -71,14 +71,18 @@ const formattedPapers = visiblePapers.map(paper => {
   let authors = '';
   if (paper['著者(英語)']) {
     authors = paper['著者(英語)'].replace(/^\[|\]$/g, '');
+    if (authors) authors = authors.replace(/\\$/, '');
   } else if (paper['著者(日本語)']) {
     authors = paper['著者(日本語)'].replace(/^\[|\]$/g, '');
+    if (authors) authors = authors.replace(/\\$/, '');
   }
   let authorsJa = '';
   if (paper['著者(日本語)']) {
     authorsJa = paper['著者(日本語)'].replace(/^\[|\]$/g, '');
+    if (authorsJa) authorsJa = authorsJa.replace(/\\$/, '');
   } else if (paper['著者(英語)']) {
     authorsJa = paper['著者(英語)'].replace(/^\[|\]$/g, '');
+    if (authorsJa) authorsJa = authorsJa.replace(/\\$/, '');
   }
 
   return {
@@ -106,15 +110,19 @@ const formattedPresentations = visiblePresentations.map(presentation => {
   let speakers = '';
   if (presentation['講演者(英語)']) {
     speakers = presentation['講演者(英語)'].replace(/^\[|\]$/g, '');
+    if (speakers) speakers = speakers.replace(/\\$/, '');
   } else if (presentation['講演者(日本語)']) {
     speakers = presentation['講演者(日本語)'].replace(/^\[|\]$/g, '');
+    if (speakers) speakers = speakers.replace(/\\$/, '');
   }
 
   let speakersJa = '';
   if (presentation['講演者(日本語)']) {
     speakersJa = presentation['講演者(日本語)'].replace(/^\[|\]$/g, '');
+    if (speakersJa) speakersJa = speakersJa.replace(/\\$/, '');
   } else if (presentation['講演者(英語)']) {
     speakersJa = presentation['講演者(英語)'].replace(/^\[|\]$/g, '');
+    if (speakersJa) speakersJa = speakersJa.replace(/\\$/, '');
   }
 
   let year = '';
@@ -166,15 +174,19 @@ const formattedMisc = visibleMisc.map(misc => {
   let authors = '';
   if (misc['著者(英語)']) {
     authors = misc['著者(英語)'].replace(/^\[|\]$/g, '');
+    if (authors) authors = authors.replace(/\\$/, '');
   } else if (misc['著者(日本語)']) {
     authors = misc['著者(日本語)'].replace(/^\[|\]$/g, '');
+    if (authors) authors = authors.replace(/\\$/, '');
   }
 
   let authorsJa = '';
   if (misc['著者(日本語)']) {
     authorsJa = misc['著者(日本語)'].replace(/^\[|\]$/g, '');
+    if (authorsJa) authorsJa = authorsJa.replace(/\\$/, '');
   } else if (misc['著者(英語)']) {
     authorsJa = misc['著者(英語)'].replace(/^\[|\]$/g, '');
+    if (authorsJa) authorsJa = authorsJa.replace(/\\$/, '');
   }
 
   return {
