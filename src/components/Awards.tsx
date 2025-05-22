@@ -83,6 +83,10 @@ const Awards: React.FC = () => {
   const hasAnyData =
     awards.length > 0 || grants.length > 0 || projects.length > 0;
 
+  if (!isLoading && !hasAnyData) {
+    return null;
+  }
+
   return (
     <section id="awards" className="py-16 bg-background-light">
       <div className="container mx-auto px-4">
