@@ -1,18 +1,5 @@
 [
   {
-    "id": "paper-4",
-    "title": "Your Paper Title 4",
-    "titleJa": "Your Paper Title 4",
-    "authors": "Author 1, Author 2",
-    "authorsJa": "Author 1, Author 2",
-    "journal": "Journal Name",
-    "journalJa": "Journal Name",
-    "year": "2024",
-    "month": "11",
-    "doi": "10.1234/abcd",
-    "isMainWork": true
-  },
-  {
     "id": "paper-3",
     "title": "あなたの論文タイトル3",
     "titleJa": "あなたの論文タイトル3",
@@ -62,6 +49,6 @@
     "year": "2020",
     "month": "01",
     "doi": "10.1234/abcd",
-    "isMainWork": false
+    "isMainWork": true
   }
 ]

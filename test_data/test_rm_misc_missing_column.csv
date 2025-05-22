@@ -1,0 +1,5 @@
+misc
+ID,タイトル(英語),タイトル(日本語),著者(英語),著者(日本語),誌名(英語),誌名(日本語),出版年月,DOI,主要な業績かどうか
+misc-1,Test Misc Title 1,テストその他タイトル1,"Author A","著者A",Misc Journal,その他ジャーナル,2023-01,10.MISC/001,false
+misc-2,Test Misc Title 2,テストその他タイトル2,"Author B","著者B",Misc Journal,その他ジャーナル,2023-02,10.MISC/002,true
+misc-3,Test Misc Title 3,テストその他タイトル3,"Author C","著者C",Misc Journal,その他ジャーナル,2023-03,10.MISC/003,false

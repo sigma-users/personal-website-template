@@ -61,7 +61,13 @@ const awardsResult = readCsv(awardsPath);
 const researchProjectsResult = readCsv(researchProjectsPath);
 
 // データ処理関数（前と同じ）
-const formattedPapers = papersResult.data.map(paper => {
+const visiblePapers = papersResult.data.filter(paper => {
+  if (paper.hasOwnProperty('公開の有無') && paper['公開の有無'] === 'closed') {
+    return false;
+  }
+  return true;
+});
+const formattedPapers = visiblePapers.map(paper => {
   let authors = '';
   if (paper['著者(英語)']) {
     authors = paper['著者(英語)'].replace(/^\[|\]$/g, '');
@@ -90,7 +96,13 @@ const formattedPapers = papersResult.data.map(paper => {
   };
 });
 
-const formattedPresentations = presentationsResult.data.map(presentation => {
+const visiblePresentations = presentationsResult.data.filter(presentation => {
+  if (presentation.hasOwnProperty('公開の有無') && presentation['公開の有無'] === 'closed') {
+    return false;
+  }
+  return true;
+});
+const formattedPresentations = visiblePresentations.map(presentation => {
   let speakers = '';
   if (presentation['講演者(英語)']) {
     speakers = presentation['講演者(英語)'].replace(/^\[|\]$/g, '');
@@ -144,7 +156,13 @@ const formattedPresentations = presentationsResult.data.map(presentation => {
   };
 });
 
-const formattedMisc = miscResult.data.map(misc => {
+const visibleMisc = miscResult.data.filter(misc => {
+  if (misc.hasOwnProperty('公開の有無') && misc['公開の有無'] === 'closed') {
+    return false;
+  }
+  return true;
+});
+const formattedMisc = visibleMisc.map(misc => {
   let authors = '';
   if (misc['著者(英語)']) {
     authors = misc['著者(英語)'].replace(/^\[|\]$/g, '');
@@ -174,7 +192,13 @@ const formattedMisc = miscResult.data.map(misc => {
   };
 });
 
-const formattedAwards = awardsResult.data.map(award => {
+const visibleAwards = awardsResult.data.filter(award => {
+  if (award.hasOwnProperty('公開の有無') && award['公開の有無'] === 'closed') {
+    return false;
+  }
+  return true;
+});
+const formattedAwards = visibleAwards.map(award => {
   return {
     id: award.ID || `award-${Math.random().toString(36).substr(2, 9)}`,
     title: award['賞名(英語)'] || award['賞名(日本語)'] || 'Untitled',
@@ -187,7 +211,13 @@ const formattedAwards = awardsResult.data.map(award => {
   };
 });
 
-const formattedResearchProjects = researchProjectsResult.data.map(researchProject => {
+const visibleResearchProjects = researchProjectsResult.data.filter(researchProject => {
+  if (researchProject.hasOwnProperty('公開の有無') && researchProject['公開の有無'] === 'closed') {
+    return false;
+  }
+  return true;
+});
+const formattedResearchProjects = visibleResearchProjects.map(researchProject => {
   return {
     id: researchProject.ID || `researchProject-${Math.random().toString(36).substr(2, 9)}`,
     title: researchProject['制度名(英語)'] || researchProject['制度名(日本語)'] || '',
