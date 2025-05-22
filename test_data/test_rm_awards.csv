@@ -1,0 +1,9 @@
+awards
+ID,賞名(日本語),賞名(英語),タイトル(日本語),タイトル(英語),授与機関(日本語),授与機関(英語),受賞年月,主要な業績かどうか,公開の有無
+award-1,公開賞1,Public Award 1,タイトル1,Title 1,機関1,Org 1,2023-01,false,disclosed
+award-2,非公開賞1,Private Award 1,タイトル2,Title 2,機関2,Org 2,2023-02,true,closed
+award-3,公開賞2,Public Award 2,タイトル3,Title 3,機関3,Org 3,2023-03,false,disclosed
+award-4,その他値賞1,Other Value Award 1,タイトル4,Title 4,機関4,Org 4,2023-04,true,yes
+award-5,空値賞1,Empty Value Award 1,タイトル5,Title 5,機関5,Org 5,2023-05,false,
+award-6,非公開賞2,Private Award 2,タイトル6,Title 6,機関6,Org 6,2023-06,false,closed
+award-7,公開賞3,Public Award 3,タイトル7,Title 7,機関7,Org 7,2023-07,true,disclosed
