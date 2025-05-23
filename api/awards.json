@@ -1,0 +1,72 @@
+[
+  {
+    "id": "example-id",
+    "title": "Example Award Name",
+    "titleJa": "賞名",
+    "awarder": "Example Awarder",
+    "awarderJa": "授与機関",
+    "year": "2025",
+    "month": "03",
+    "isMainWork": false
+  },
+  {
+    "id": "49341459",
+    "title": "Aoba Research Encouragement Prize",
+    "titleJa": "青葉研究奨励賞",
+    "awarder": "Aoba Research Foundation",
+    "awarderJa": "青葉研究奨励会",
+    "year": "2025",
+    "month": "03",
+    "isMainWork": false
+  },
+  {
+    "id": "48550881",
+    "title": "Institutional Participant in the Rising Stars Women in Science Workshop",
+    "titleJa": "Institutional Participant in the Rising Stars Women in Science Workshop",
+    "awarder": "",
+    "awarderJa": "",
+    "year": "2024",
+    "month": "11",
+    "isMainWork": false
+  },
+  {
+    "id": "46398327",
+    "title": "Dean's Award (Excellence in Research)",
+    "titleJa": "理学系研究科研究科長賞（研究最優秀）",
+    "awarder": "Kyoto University",
+    "awarderJa": "京都大学",
+    "year": "2023",
+    "month": "03",
+    "isMainWork": false
+  },
+  {
+    "id": "46398303",
+    "title": "日本生物学会第64回シンポジウム最優秀ポスター賞",
+    "titleJa": "日本生物学会第64回シンポジウム最優秀ポスター賞",
+    "awarder": "日本生物学会",
+    "awarderJa": "日本生物学会",
+    "year": "2021",
+    "month": "11",
+    "isMainWork": false
+  },
+  {
+    "id": "46398299",
+    "title": "日本化学学会・物理学会奨学賞",
+    "titleJa": "日本化学学会・物理学会奨学賞",
+    "awarder": "日本化学学会 物理学会",
+    "awarderJa": "日本化学学会 物理学会",
+    "year": "2018",
+    "month": "03",
+    "isMainWork": false
+  },
+  {
+    "id": "46398295",
+    "title": "Dean's Award",
+    "titleJa": "理学部長賞",
+    "awarder": "Kyoto University",
+    "awarderJa": "京都大学",
+    "year": "2018",
+    "month": "03",
+    "isMainWork": false
+  }
+]

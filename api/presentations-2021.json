@@ -1,0 +1,16 @@
+[
+  {
+    "id": "presentation-2",
+    "title": "Your Presentation Title2",
+    "titleJa": "あなたの発表タイトル2",
+    "speakers": "Author 1, Author 2",
+    "speakersJa": "著者1, 著者2",
+    "conference": "Conference Name",
+    "conferenceJa": "会議名",
+    "date": "2021-01-04",
+    "year": "2021",
+    "place": "Location",
+    "placeJa": "場所",
+    "isInvited": false
+  }
+]
