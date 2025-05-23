@@ -16,6 +16,24 @@ const Publications: React.FC = () => {
   const [showAll, setShowAll] = useState<boolean>(false);
   const maxItems = 5;
 
+  // 論文データの有無を確認し、デフォルトタブを設定
+  useEffect(() => {
+    const checkPapersAndSetDefaultTab = async () => {
+      try {
+        const response = await fetch("/api/papers.json");
+        const data = await response.json();
+        if (!data || data.length === 0) {
+          setActiveTab("presentations");
+        }
+      } catch (error) {
+        console.error("Failed to fetch papers:", error);
+        setActiveTab("presentations");
+      }
+    };
+
+    checkPapersAndSetDefaultTab();
+  }, []);
+
   // 年のリストを取得
   useEffect(() => {
     const fetchYears = async () => {
@@ -87,10 +105,48 @@ const Publications: React.FC = () => {
     return showAll ? items : items.slice(0, maxItems);
   };
 
-  // タブが変更されたときにshowAllをリセット
-  const handleTabChange = (tab: "papers" | "presentations" | "misc") => {
+  // タブが変更されたときにshowAllをリセットし、データを再取得
+  const handleTabChange = async (tab: "papers" | "presentations" | "misc") => {
     setActiveTab(tab);
     setShowAll(false);
+    setIsLoading(true);
+
+    try {
+      const endpoint =
+        tab === "papers"
+          ? selectedYear
+            ? `./api/papers-${selectedYear}.json`
+            : "/api/papers.json"
+          : tab === "presentations"
+          ? selectedYear
+            ? `./api/presentations-${selectedYear}.json`
+            : "/api/presentations.json"
+          : selectedYear
+          ? `./api/misc-${selectedYear}.json`
+          : "/api/misc.json";
+
+      const response = await fetch(endpoint);
+      const data = await response.json();
+
+      if (tab === "papers") {
+        setPapers(data || []);
+      } else if (tab === "presentations") {
+        setPresentations(data || []);
+      } else {
+        setMisc(data || []);
+      }
+    } catch (error) {
+      console.error(`Failed to fetch ${tab}:`, error);
+      if (tab === "papers") {
+        setPapers([]);
+      } else if (tab === "presentations") {
+        setPresentations([]);
+      } else {
+        setMisc([]);
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   // 年の選択
