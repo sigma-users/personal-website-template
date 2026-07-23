@@ -250,26 +250,39 @@ const formattedResearchProjects = visibleResearchProjects.map(researchProject =>
 });
 
 
-// 日付でソート
-const sortedPapers = formattedPapers.sort((a, b) => {
-  return (b.year + b.month) - (a.year + a.month);
-});
+// 年月を数値キー（YYYYMM相当）に変換する。空欄や不正値は 0 として扱う。
+// 文字列連結("2024"+"03")を減算に頼ると月が空のとき桁数が崩れて順序が壊れるため、
+// 明示的に数値化して比較する。
+const yearMonthKey = (year, month) =>
+  (Number(year) || 0) * 100 + (Number(month) || 0);
 
-const sortedPresentations = formattedPresentations.sort((a, b) => {
-  return new Date(b.date) - new Date(a.date);
-});
+// 日付文字列を数値（ミリ秒）に変換する。不正な日付は 0 として末尾に寄せる。
+const dateKey = (dateStr) => {
+  const time = new Date(dateStr).getTime();
+  return Number.isNaN(time) ? 0 : time;
+};
 
-const sortedMisc = formattedMisc.sort((a, b) => {
-  return (b.year + b.month) - (a.year + a.month);
-});
+// 日付でソート（降順：新しいものが先頭）
+const sortedPapers = formattedPapers.sort(
+  (a, b) => yearMonthKey(b.year, b.month) - yearMonthKey(a.year, a.month)
+);
 
-const sortedAwards = formattedAwards.sort((a, b) => {
-  return (b.year + b.month) - (a.year + a.month);
-});
+const sortedPresentations = formattedPresentations.sort(
+  (a, b) => dateKey(b.date) - dateKey(a.date)
+);
 
-const sortedResearchProjects = formattedResearchProjects.sort((a, b) => {
-  return (b.yearFrom + b.monthFrom) - (a.yearFrom + a.monthFrom);
-});
+const sortedMisc = formattedMisc.sort(
+  (a, b) => yearMonthKey(b.year, b.month) - yearMonthKey(a.year, a.month)
+);
+
+const sortedAwards = formattedAwards.sort(
+  (a, b) => yearMonthKey(b.year, b.month) - yearMonthKey(a.year, a.month)
+);
+
+const sortedResearchProjects = formattedResearchProjects.sort(
+  (a, b) =>
+    yearMonthKey(b.yearFrom, b.monthFrom) - yearMonthKey(a.yearFrom, a.monthFrom)
+);
 
 
 // APIファイルを作成
@@ -305,7 +318,7 @@ const yearsSet = new Set();
 sortedPapers.forEach(paper => paper.year && yearsSet.add(paper.year));
 sortedPresentations.forEach(presentation => presentation.year && yearsSet.add(presentation.year));
 sortedMisc.forEach(misc => misc.year && yearsSet.add(misc.year));
-const years = Array.from(yearsSet).sort((a, b) => b - a);
+const years = Array.from(yearsSet).sort((a, b) => Number(b) - Number(a));
 
 // 年ごとのデータを作成
 years.forEach(year => {

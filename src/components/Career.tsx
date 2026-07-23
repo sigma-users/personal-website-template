@@ -19,9 +19,13 @@ const Career: React.FC = () => {
         const response = await fetch(
           `./content/career/career_${i18n.language}.json`
         );
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status} for career data`);
+        }
         const data = await response.json();
+        const items = Array.isArray(data) ? data : [];
 
-        const sortedData = [...data].sort((a, b) => {
+        const sortedData = [...items].sort((a, b) => {
           const dateA = a.endDate || "9999";
           const dateB = b.endDate || "9999";
 

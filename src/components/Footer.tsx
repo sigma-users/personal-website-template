@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
               className="flex items-center hover:text-accent transition-colors"
             >
               <img
-                src="/images/lab-logo.png"
+                src="./images/lab-logo.png"
                 alt={t("footer.labName")}
                 className="h-10 mr-3"
               />

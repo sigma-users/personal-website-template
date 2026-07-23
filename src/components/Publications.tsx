@@ -22,11 +22,14 @@ const Publications: React.FC = () => {
 
     const checkPapersAndSetDefaultTab = async () => {
       try {
-        const response = await fetch("/api/papers.json", {
+        const response = await fetch("./api/papers.json", {
           signal: abortController.signal,
         });
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status} for papers`);
+        }
         const data = await response.json();
-        if (!data || data.length === 0) {
+        if (!Array.isArray(data) || data.length === 0) {
           setActiveTab("presentations");
         }
       } catch (error) {
@@ -52,11 +55,14 @@ const Publications: React.FC = () => {
 
     const fetchYears = async () => {
       try {
-        const response = await fetch("/api/years.json", {
+        const response = await fetch("./api/years.json", {
           signal: abortController.signal,
         });
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status} for years`);
+        }
         const data = await response.json();
-        setYears(data.years || []);
+        setYears(Array.isArray(data?.years) ? data.years : []);
         setSelectedYear("");
       } catch (error) {
         if (error instanceof Error && error.name === "AbortError") {
@@ -86,26 +92,30 @@ const Publications: React.FC = () => {
           activeTab === "papers"
             ? selectedYear
               ? `./api/papers-${selectedYear}.json`
-              : "/api/papers.json"
+              : "./api/papers.json"
             : activeTab === "presentations"
             ? selectedYear
               ? `./api/presentations-${selectedYear}.json`
-              : "/api/presentations.json"
+              : "./api/presentations.json"
             : selectedYear
             ? `./api/misc-${selectedYear}.json`
-            : "/api/misc.json";
+            : "./api/misc.json";
 
         const response = await fetch(endpoint, {
           signal: abortController.signal,
         });
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status} for ${activeTab}`);
+        }
         const data = await response.json();
+        const items = Array.isArray(data) ? data : [];
 
         if (activeTab === "papers") {
-          setPapers(data || []);
+          setPapers(items);
         } else if (activeTab === "presentations") {
-          setPresentations(data || []);
+          setPresentations(items);
         } else {
-          setMisc(data || []);
+          setMisc(items);
         }
       } catch (error) {
         if (error instanceof Error && error.name === "AbortError") {
