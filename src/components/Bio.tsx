@@ -196,7 +196,9 @@ const Bio: React.FC = () => {
               </div>
             ) : (
               <div className="prose max-w-none">
-                <Markdown>{bioContent}</Markdown>
+                <Markdown options={{ disableParsingRawHTML: true }}>
+                  {bioContent}
+                </Markdown>
               </div>
             )}
 

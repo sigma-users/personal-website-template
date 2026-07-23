@@ -74,7 +74,7 @@ const Awards: React.FC = () => {
 
   // 表示するアイテムの制限を行う関数を追加
   const getDisplayedItems = <T extends Award | Grant | Project>(
-    items: T[]
+    items: T[],
   ): T[] => {
     return showAll ? items : items.slice(0, maxItems);
   };
@@ -229,7 +229,11 @@ const Awards: React.FC = () => {
                             ? grant.subject
                             : grant.subjectJa}
                         </h4>
-                        <p className="text-gray-700">{grant.funder}</p>
+                        <p className="text-gray-700">
+                          {i18n.language == "en"
+                            ? grant.funder
+                            : grant.funderJa}
+                        </p>
                         <p className="text-gray-600">
                           {grant.number && grant.number.trim() !== "" ? (
                             <>

@@ -139,60 +139,12 @@ const Publications: React.FC = () => {
     return showAll ? items : items.slice(0, maxItems);
   };
 
-  // タブが変更されたときにshowAllをリセットし、データを再取得
-  const handleTabChange = async (tab: "papers" | "presentations" | "misc") => {
+  // タブが変更されたときにactiveTabとshowAllを更新する。
+  // 実際のデータ取得は activeTab を依存に持つ useEffect が担当するため、
+  // ここで fetch を行うと二重取得になる（旧実装のバグ）。
+  const handleTabChange = (tab: "papers" | "presentations" | "misc") => {
     setActiveTab(tab);
     setShowAll(false);
-    setIsLoading(true);
-
-    const abortController = new AbortController();
-
-    try {
-      const endpoint =
-        tab === "papers"
-          ? selectedYear
-            ? `./api/papers-${selectedYear}.json`
-            : "/api/papers.json"
-          : tab === "presentations"
-          ? selectedYear
-            ? `./api/presentations-${selectedYear}.json`
-            : "/api/presentations.json"
-          : selectedYear
-          ? `./api/misc-${selectedYear}.json`
-          : "/api/misc.json";
-
-      const response = await fetch(endpoint, {
-        signal: abortController.signal,
-      });
-      const data = await response.json();
-
-      if (tab === "papers") {
-        setPapers(data || []);
-      } else if (tab === "presentations") {
-        setPresentations(data || []);
-      } else {
-        setMisc(data || []);
-      }
-    } catch (error) {
-      if (error instanceof Error && error.name === "AbortError") {
-        console.log("Fetch aborted");
-        return;
-      }
-      console.error(`Failed to fetch ${tab}:`, error);
-      if (tab === "papers") {
-        setPapers([]);
-      } else if (tab === "presentations") {
-        setPresentations([]);
-      } else {
-        setMisc([]);
-      }
-    } finally {
-      setIsLoading(false);
-    }
-
-    return () => {
-      abortController.abort();
-    };
   };
 
   // 年の選択
