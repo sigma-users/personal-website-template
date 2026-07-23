@@ -1,10 +1,9 @@
+import Markdown from "markdown-to-jsx";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { FaGoogleScholar } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
-import { GiJapan } from "react-icons/gi";
+import { FaGoogleScholar } from "react-icons/fa6";
 import { MdOutlineMailOutline } from "react-icons/md";
-import Markdown from "markdown-to-jsx";
 
 const Bio: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -67,7 +66,7 @@ const Bio: React.FC = () => {
                   </>
                 )}
               </h1>
-              <h2 className="text-xl text-gray-700 mb-1">
+              <p className="text-xl text-gray-700 mb-1">
                 {i18n.language === "en" ? (
                   <>
                     {t("bio.nameJp")}
@@ -79,7 +78,7 @@ const Bio: React.FC = () => {
                     {t("bio.phd") && ` | ${t("bio.phd")}`}
                   </>
                 )}
-              </h2>
+              </p>
               <p className="text-lg text-gray-600">
                 {t("bio.position")} | {t("bio.affiliation")}
               </p>
@@ -166,7 +165,11 @@ const Bio: React.FC = () => {
                     className="text-secondary hover:text-accent transition-colors"
                     aria-label="LinkedIn"
                   >
-                    <img src="./linkedin.png" alt="LinkedIn" className="h-6 w-6" />
+                    <img
+                      src="./linkedin.png"
+                      alt="LinkedIn"
+                      className="h-6 w-6"
+                    />
                   </a>
                   <span className="text-sm text-gray-600">LinkedIn</span>
                 </div>
