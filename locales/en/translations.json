@@ -1,0 +1,82 @@
+{
+  "header": {
+    "name": "Your Name"
+  },
+  "nav": {
+    "bio": "About",
+    "publications": "Publications",
+    "awards": "Awards",
+    "career": "Career",
+    "contact": "Contact"
+  },
+  "bio": {
+    "name": "Your Name",
+    "nameJp": "あなたの名前",
+    "phd": "",
+    "phdJp": "博士（工学）",
+    "position": "Postdoctoral Researcher",
+    "affiliation": "Institute of Engineering Innovation, The University of Tokyo",
+    "github": "https://github.com/yourusername",
+    "scholar": "https://scholar.google.com/citations?user=your-id",
+    "orcid": "https://orcid.org/0000-0000-0000-0000",
+    "researchmap": "https://researchmap.jp/yourusername",
+    "linkedin": "https://www.linkedin.com/in/yourusername/",
+    "researchInterests": "Research Interests",
+    "researchTags": [
+      "Mathematics",
+      "Physics"
+    ]
+  },
+  "publications": {
+    "title": "Publications",
+    "papers": "Papers",
+    "presentations": "Presentations",
+    "misc": "Misc",
+    "allYears": "All Years",
+    "mainWork": "Main Work",
+    "invited": "Invited",
+    "noPapers": "No papers found for this year.",
+    "noPresentations": "No presentations found for this year.",
+    "noMisc": "No other publications found for this year.",
+    "showAll": "Show All"
+  },
+  "awards": {
+    "title": "Awards & Projects",
+    "honorsAndAwards": "Honors & Awards",
+    "grants": "Grants & Funding",
+    "projects": "Projects",
+    "noData": "No data available.",
+    "showAll": "Show All"
+  },
+  "career": {
+    "title": "Career",
+    "education": "Education",
+    "work": "Work Experience",
+    "present": "Present",
+    "noData": "No career data available."
+  },
+  "contact": {
+    "title": "Contact",
+    "info": "Contact Information",
+    "location": "Location",
+    "relatedLinks": "Related Links",
+    "email": "Email",
+    "emailAdress": "your.email[at]example.com",
+    "phone": "Phone",
+    "phoneNumber": "+81-3-5841-7689",
+    "address": "Address",
+    "addressLine1": "Electron Microscopy and Materials Science Laboratory",
+    "addressLine2": "The University of Tokyo",
+    "addressLine3": "Room 419, Faculty of Engineering Bldg. 9, 2-11-16 Yayoi, Bunkyo-ku, Tokyo 113-0032, Japan",
+    "socialMedia": "",
+    "linkedin": "",
+    "facebook": "",
+    "twitter": "",
+    "labName": "Electron Microscopy and Materials Science Laboratory",
+    "labURL": "https://www.saaf.t.u-tokyo.ac.jp/?lang=en"
+  },
+  "footer": {
+    "allRightsReserved": "All Rights Reserved.",
+    "templateText": "This website is based on a template available on "
+  }
+}
