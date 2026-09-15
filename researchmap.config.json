@@ -1,0 +1,13 @@
+{
+  "enabled": false,
+  "permalink": "",
+  "sync": {
+    "papers": true,
+    "presentations": true,
+    "misc": true,
+    "awards": true,
+    "researchProjects": true,
+    "profile": false,
+    "career": false
+  }
+}

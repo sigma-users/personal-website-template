@@ -4,10 +4,31 @@ on:
   push:
     branches:
       - main
+  schedule:
+    # Monthly: first day, 09:17 Japan time / 00:17 UTC.
+    - cron: '17 0 1 * *'
   workflow_dispatch:
 
+concurrency:
+  group: website-deployment
+  cancel-in-progress: false
+
 jobs:
+  settings:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      enabled: ${{ steps.config.outputs.enabled }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: config
+        run: node -e "const c=require('./scripts/researchmap.cjs').readConfig(process.cwd()); require('node:fs').appendFileSync(process.env.GITHUB_OUTPUT, 'enabled='+c.enabled+'\n')"
+
   build-and-deploy:
+    needs: settings
+    if: github.event_name != 'schedule' || needs.settings.outputs.enabled == 'true'
+    timeout-minutes: 15
     runs-on: ubuntu-latest
 
     permissions:
@@ -15,15 +36,24 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Test synchronization
+        run: npm test
+
+      - name: Fetch public researchmap data
+        if: needs.settings.outputs.enabled == 'true'
+        run: npm run sync-researchmap
 
       - name: Generate API
         run: npm run generate-api
@@ -73,6 +103,19 @@ jobs:
           echo "Repository: ${{github.repository}}"
           echo "Actor: ${{github.actor}}"
           echo "Ref: ${{github.ref}}"
+
+      # Save only after validation and build. GITHUB_TOKEN commits do not trigger
+      # another push workflow; deployment continues in this same job.
+      - name: Save synchronized content
+        if: needs.settings.outputs.enabled == 'true'
+        run: |
+          git add data/researchmap.json public/api public/content/career public/locales
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Update website from public researchmap data'
+            git push origin HEAD:main
+          fi
 
       # 確実にgh-pagesブランチを作成
       - name: Deploy

@@ -1,5 +1,10 @@
 # Academic Website Template
 
+## Optional: automatic researchmap updates
+
+Keep your publication lists up to date without editing CSV files. Disabled by default; monthly updates and manual runs are available. Start with the [step-by-step guide](wiki/researchmap-sync.md).
+
+
 A responsive academic website template using React, TypeScript, and Tailwind CSS.
 
 ## 日本語のREADME
