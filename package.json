@@ -5,13 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/generatePublicApi.cjs && vite",
-    "build": "node scripts/generatePublicApi.cjs && tsc && vite build",
+    "build": "node scripts/generatePublicApi.cjs && tsc -b && vite build",
     "lint": "eslint . --ext js,jsx,ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "deploy": "node scripts/generatePublicApi.cjs && gh-pages -d dist",
     "generate-api": "node scripts/generatePublicApi.cjs",
     "generate-seo-files": "node scripts/generateSeoFiles.cjs",
-    "postbuild": "npm run generate-seo-files"
+    "postbuild": "npm run generate-seo-files",
+    "sync-researchmap": "node scripts/syncResearchmap.cjs",
+    "test": "node --test scripts/researchmap.test.cjs"
   },
   "dependencies": {
     "i18next": "^23.16.8",

@@ -1,5 +1,10 @@
 # Academic Website Template
 
+## researchmap からの自動更新（任意）
+
+CSV を手動編集せず、公開情報から月1回ホームページを更新できます。初期状態では無効です。[GitHub が初めての方向けの設定手順](wiki/researchmap-sync_ja.md) をご覧ください。
+
+
 React、TypeScript、Tailwind CSSを使用したレスポンシブな学術用ウェブサイトテンプレート。
 
 ## 特徴

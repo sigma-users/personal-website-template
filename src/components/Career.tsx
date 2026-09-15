@@ -144,9 +144,11 @@ const Career: React.FC = () => {
                   </div>
 
                   {/* 場所 */}
-                  <p className="text-gray-600 text-sm italic">
-                    <span className="inline-block">📍 {item.location}</span>
-                  </p>
+                  {item.location && (
+                    <p className="text-gray-600 text-sm italic">
+                      <span className="inline-block">📍 {item.location}</span>
+                    </p>
+                  )}
 
                   {/* 説明文 */}
                   {item.description && (
